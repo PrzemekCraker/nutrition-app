@@ -1,14 +1,14 @@
 import React from "react";
 import { Text, StyleSheet, View } from "react-native";
 
-const AccountScreen = () => {
+const YelpScreen = () => {
   return (
     <View>
-      <Text>AccountScreen</Text>
+      <Text>Yelp</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({});
 
-export default AccountScreen;
+export default YelpScreen;
