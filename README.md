@@ -48,7 +48,7 @@ In app directory run the ngrok (public URL) via command
 
 ```
 $ cd ../nutrition-app
-$ ngrok http 3000
+$ ngrok http 3001
 
 ```
 
