@@ -13,6 +13,7 @@ import ProductsScreen from "./src/screens/ProductsScreen";
 import YelpScreen from "./src/screens/YelpScreen";
 import ProductDetailScreen from "./src/screens/ProductDetailScreen";
 import AddProductScreen from "./src/screens/AddProductScreen";
+import ResultShowScreen from "./src/screens/ResultsShowScreen";
 import { Provider as AuthProvider } from "./src/context/AuthContext";
 import { setNavigator } from "./src/navigationRef";
 
@@ -21,6 +22,16 @@ const ProductFlow = createStackNavigator({
   AddProduct: AddProductScreen,
   ProductDetail: ProductDetailScreen,
 });
+
+const RestFlow = createStackNavigator({
+  SearchRest: YelpScreen,
+  ResultsShow: ResultShowScreen,
+});
+
+RestFlow.navigationOptions = {
+  title: "Restaurants",
+  tabBarIcon: <MaterialCommunityIcons name="food" size={20} color="black" />,
+};
 
 ProductFlow.navigationOptions = {
   title: "Products",
@@ -36,7 +47,7 @@ const switchNavigator = createSwitchNavigator({
   mainFlow: createBottomTabNavigator({
     ProductFlow,
     Nutrition: NutritionScreen,
-    Yelp: YelpScreen,
+    RestFlow,
     Account: AccountScreen,
   }),
 });
