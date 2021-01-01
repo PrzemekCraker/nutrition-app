@@ -15,7 +15,7 @@ import {
 
 export default class ShoppingList extends React.Component {
   static navigationOptions = {
-    title: "My Groceries List",
+    title: "My Shopping List",
   };
 
   constructor(props) {

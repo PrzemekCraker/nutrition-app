@@ -20,7 +20,7 @@ import { setNavigator } from "./src/navigationRef";
 
 const ProductFlow = createStackNavigator({
   Products: ShoppingList,
-  Add: AddProduct,
+  AddProduct: AddProduct,
 });
 
 ProductFlow.navigationOptions = {
@@ -36,7 +36,6 @@ const switchNavigator = createSwitchNavigator({
   }),
   mainFlow: createBottomTabNavigator({
     ProductFlow,
-    Add: AddProduct,
     Yelp: YelpScreen,
     Account: AccountScreen,
   }),

@@ -12,6 +12,7 @@ import {
   Fab,
   Icon,
 } from "native-base";
+import { View, StyleSheet, Button, Alert, TextInput } from "react-native";
 
 export default class AddProduct extends React.Component {
   static navigationOptions = {
@@ -31,7 +32,7 @@ export default class AddProduct extends React.Component {
     };
   }
 
-  async componentWillMount() {
+  async componentDidMount() {
     const savedProducts = await AsyncStorage.getItem("@allProducts");
     if (savedProducts) {
       this.setState({
@@ -77,19 +78,38 @@ export default class AddProduct extends React.Component {
     }
   }
 
-  _handleAddProductPress() {
-    prompt(
-      "Enter product name",
-      "",
+  // _handleAddProductPress() {
+  //   prompt(
+  //     "Enter product name",
+  //     "...",
+  //     [
+  //       { text: "Cancel", style: "cancel" },
+  //       { text: "OK", onPress: this.addNewProduct.bind(this) },
+  //     ],
+  //     {
+  //       type: "plain-text",
+  //       cancelable: false,
+  //       defaultValue: "test",
+  //       placeholder: "placeholder",
+  //     }
+  //   );
+  // }
+
+  _handleAddProductPress = () => {
+    Alert.alert(
+      "Alert Title",
+      "tutaj wpisz",
       [
-        { text: "Cancel", style: "cancel" },
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel",
+        },
         { text: "OK", onPress: this.addNewProduct.bind(this) },
       ],
-      {
-        type: "plain-text",
-      }
+      { cancelable: false }
     );
-  }
+  };
 
   async _handleRemovePress(product) {
     this.setState({
@@ -152,3 +172,11 @@ export default class AddProduct extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "space-around",
+    alignItems: "center",
+  },
+});
