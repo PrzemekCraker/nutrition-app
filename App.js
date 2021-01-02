@@ -4,6 +4,8 @@ import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
+import ShoppingList from "./src/screens/ShoppingList.js";
+import AddProduct from "./src/screens/AddProduct.js";
 import AccountScreen from "./src/screens/AccountScreen";
 import SigninScreen from "./src/screens/SigninScreen";
 import SignupScreen from "./src/screens/SignupScreen";
@@ -18,9 +20,8 @@ import { Provider as AuthProvider } from "./src/context/AuthContext";
 import { setNavigator } from "./src/navigationRef";
 
 const ProductFlow = createStackNavigator({
-  Products: ProductsScreen,
-  AddProduct: AddProductScreen,
-  ProductDetail: ProductDetailScreen,
+  Products: ShoppingList,
+  AddProduct: AddProduct,
 });
 
 const RestFlow = createStackNavigator({
@@ -46,7 +47,6 @@ const switchNavigator = createSwitchNavigator({
   }),
   mainFlow: createBottomTabNavigator({
     ProductFlow,
-    Nutrition: NutritionScreen,
     RestFlow,
     Account: AccountScreen,
   }),
