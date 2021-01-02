@@ -22,8 +22,10 @@ export default class ShoppingList extends React.Component {
     super(props);
     this.state = {
       products: [
-        { id: 1, name: "bread" },
-        { id: 2, name: "eggs" },
+        { id: 1, name: "plain yoghurt" },
+        { id: 2, name: "bread" },
+        { id: 3, name: "smoked meat" },
+        { id: 4, name: "eggs" },
       ],
     };
   }

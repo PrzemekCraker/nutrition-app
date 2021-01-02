@@ -30,10 +30,14 @@ export default class AddProduct extends React.Component {
     super(props);
     this.state = {
       allProducts: [
-        { id: 1, name: "bread" },
-        { id: 2, name: "eggs" },
-        { id: 3, name: "paper towels" },
-        { id: 4, name: "milk" },
+        { id: 1, name: "plain yoghurt" },
+        { id: 2, name: "bread" },
+        { id: 3, name: "smoked meat" },
+        { id: 4, name: "eggs" },
+        { id: 5, name: "milk" },
+        { id: 6, name: "broccoli" },
+        { id: 7, name: "paper towels" },
+        { id: 8, name: "blue cheese" },
       ],
       productsInList: [],
     };
@@ -84,37 +88,37 @@ export default class AddProduct extends React.Component {
     }
   }
 
-  _handleAddProductPress() {
-    this.addNewProduct = this.addNewProduct.bind(this);
-    prompt(
-      "Enter product name",
-      "",
-      [
-        { text: "Cancel", style: "cancel" },
-        { text: "OK", onPress: this.addNewProduct },
-      ],
-      {
-        type: "plain-text",
-        placeholder: "placeholder",
-      }
-    );
-  }
-
-  // _handleAddProductPress = () => {
-  //   Alert.alert(
-  //     "Alert Title",
-  //     "test",
+  // _handleAddProductPress() {
+  //   this.addNewProduct = this.addNewProduct.bind(this);
+  //   prompt(
+  //     "Enter product name",
+  //     "",
   //     [
-  //       {
-  //         text: "Cancel",
-  //         onPress: () => console.log("Cancel Pressed"),
-  //         style: "cancel",
-  //       },
-  //       { text: "OK", onPress: this.addNewProduct.bind(this) },
+  //       { text: "Cancel", style: "cancel" },
+  //       { text: "OK", onPress: this.addNewProduct },
   //     ],
-  //     { cancelable: false }
+  //     {
+  //       type: "plain-text",
+  //       placeholder: "placeholder",
+  //     }
   //   );
-  // };
+  // }
+
+  _handleAddProductPress = () => {
+    Alert.alert(
+      "Add a product",
+      "Name:",
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel",
+        },
+        { text: "Add", onPress: this.addNewProduct.bind(this) },
+      ],
+      { cancelable: false }
+    );
+  };
 
   async _handleRemovePress(product) {
     this.setState({
