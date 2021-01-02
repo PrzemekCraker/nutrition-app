@@ -85,13 +85,13 @@ export default class AddProduct extends React.Component {
   }
 
   _handleAddProductPress() {
-    addNewProduct = this.addNewProduct.bind(this);
+    this.addNewProduct = this.addNewProduct.bind(this);
     prompt(
       "Enter product name",
       "",
       [
         { text: "Cancel", style: "cancel" },
-        { text: "OK", onPress: addNewProduct },
+        { text: "OK", onPress: this.addNewProduct },
       ],
       {
         type: "plain-text",
