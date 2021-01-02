@@ -12,7 +12,14 @@ import {
   Fab,
   Icon,
 } from "native-base";
-import { View, StyleSheet, Button, Alert, TextInput } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Button,
+  Alert,
+  TextInput,
+  NativeModules,
+} from "react-native";
 
 export default class AddProduct extends React.Component {
   static navigationOptions = {
@@ -58,7 +65,6 @@ export default class AddProduct extends React.Component {
     });
   }
 
-  /*** User Actions Handlers ***/
   _handleProductPress(product) {
     const productIndex = this.state.productsInList.findIndex(
       (p) => p.id === product.id
@@ -78,38 +84,37 @@ export default class AddProduct extends React.Component {
     }
   }
 
-  // _handleAddProductPress() {
-  //   prompt(
-  //     "Enter product name",
-  //     "...",
+  _handleAddProductPress() {
+    addNewProduct = this.addNewProduct.bind(this);
+    prompt(
+      "Enter product name",
+      "",
+      [
+        { text: "Cancel", style: "cancel" },
+        { text: "OK", onPress: addNewProduct },
+      ],
+      {
+        type: "plain-text",
+        placeholder: "placeholder",
+      }
+    );
+  }
+
+  // _handleAddProductPress = () => {
+  //   Alert.alert(
+  //     "Alert Title",
+  //     "test",
   //     [
-  //       { text: "Cancel", style: "cancel" },
+  //       {
+  //         text: "Cancel",
+  //         onPress: () => console.log("Cancel Pressed"),
+  //         style: "cancel",
+  //       },
   //       { text: "OK", onPress: this.addNewProduct.bind(this) },
   //     ],
-  //     {
-  //       type: "plain-text",
-  //       cancelable: false,
-  //       defaultValue: "test",
-  //       placeholder: "placeholder",
-  //     }
+  //     { cancelable: false }
   //   );
-  // }
-
-  _handleAddProductPress = () => {
-    Alert.alert(
-      "Alert Title",
-      "tutaj wpisz",
-      [
-        {
-          text: "Cancel",
-          onPress: () => console.log("Cancel Pressed"),
-          style: "cancel",
-        },
-        { text: "OK", onPress: this.addNewProduct.bind(this) },
-      ],
-      { cancelable: false }
-    );
-  };
+  // };
 
   async _handleRemovePress(product) {
     this.setState({
@@ -121,7 +126,6 @@ export default class AddProduct extends React.Component {
     );
   }
 
-  /*** Render ***/
   render() {
     return (
       <Container>
