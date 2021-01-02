@@ -5,6 +5,7 @@ import useResults from "../context/useResults";
 import ResultsList from "../components/ResultsList";
 import { SafeAreaView } from "react-navigation";
 import Spacer from "../components/Spacer";
+import LocBar from "../components/LocBar";
 
 const YelpScreen = () => {
   const [term, setTerm] = useState("");
@@ -29,13 +30,14 @@ const YelpScreen = () => {
         Search something to eat!
       </Text>
       <Spacer />
+      <LocBar />
       <SearchBar
         term={term}
         onTermChange={setTerm}
         onTermSubmit={() => searchApi(term)}
       />
       {errorMessage ? <Text>{errorMessage}</Text> : null}
-      <ScrollView>
+      <ScrollView style={styles.scrollView}>
         <Text style={styles.result}>
           We have found {results.length} results
         </Text>
@@ -62,6 +64,9 @@ YelpScreen.navigationOptions = () => {
 const styles = StyleSheet.create({
   result: {
     textAlign: "center",
+  },
+  scrollView: {
+    marginBottom: 200,
   },
 });
 

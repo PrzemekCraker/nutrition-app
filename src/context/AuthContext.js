@@ -34,11 +34,8 @@ const clearErrorMessage = (dispatch) => () => {
 
 const signup = (dispatch) => async ({ email, password }) => {
   try {
-    //req api
     const response = await trackerApi.post("/signup", { email, password });
-    //store token
     await AsyncStorage.setItem("token", response.data.token);
-    //update state
     dispatch({ type: "signin", payload: response.data.token });
     navigate("Products");
   } catch (err) {

@@ -107,7 +107,7 @@ export default class AddProduct extends React.Component {
   _handleAddProductPress = () => {
     Alert.alert(
       "Add a product",
-      "Name:",
+      "Name: Kawa",
       [
         {
           text: "Cancel",

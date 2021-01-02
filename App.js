@@ -2,7 +2,8 @@ import React from "react";
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
 
 import ShoppingList from "./src/screens/ShoppingList.js";
 import AddProduct from "./src/screens/AddProduct.js";
@@ -10,11 +11,7 @@ import AccountScreen from "./src/screens/AccountScreen";
 import SigninScreen from "./src/screens/SigninScreen";
 import SignupScreen from "./src/screens/SignupScreen";
 import EmptyScreen from "./src/screens/EmptyScreen";
-import NutritionScreen from "./src/screens/NutritionScreen";
-import ProductsScreen from "./src/screens/ProductsScreen";
 import YelpScreen from "./src/screens/YelpScreen";
-import ProductDetailScreen from "./src/screens/ProductDetailScreen";
-import AddProductScreen from "./src/screens/AddProductScreen";
 import ResultShowScreen from "./src/screens/ResultsShowScreen";
 import { Provider as AuthProvider } from "./src/context/AuthContext";
 import { setNavigator } from "./src/navigationRef";
@@ -31,12 +28,12 @@ const RestFlow = createStackNavigator({
 
 RestFlow.navigationOptions = {
   title: "Restaurants",
-  tabBarIcon: <MaterialCommunityIcons name="food" size={20} color="black" />,
+  tabBarIcon: <MaterialIcons name="restaurant" size={20} color="black" />,
 };
 
 ProductFlow.navigationOptions = {
   title: "Products",
-  tabBarIcon: <MaterialCommunityIcons name="food" size={20} color="black" />,
+  tabBarIcon: <Entypo name="shopping-cart" size={20} color="black" />,
 };
 
 const switchNavigator = createSwitchNavigator({

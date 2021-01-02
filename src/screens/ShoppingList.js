@@ -30,7 +30,6 @@ export default class ShoppingList extends React.Component {
     };
   }
 
-  /*** User Actions Handlers ***/
   _handleProductPress(product) {
     this.state.products.forEach((p) => {
       if (product.id === p.id) {
@@ -64,7 +63,6 @@ export default class ShoppingList extends React.Component {
     ]);
   }
 
-  /*** Render ***/
   render() {
     return (
       <Container>
