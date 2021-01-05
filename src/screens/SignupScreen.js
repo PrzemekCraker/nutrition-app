@@ -12,7 +12,7 @@ const SignupScreen = ({ navigation }) => {
     <View style={styles.container}>
       <NavigationEvents onWillFocus={clearErrorMessage} />
       <AuthForm
-        headerText="Sign up for Nutrition App"
+        headerText="Sign up for List App"
         errorMessage={state.errorMessage}
         submitButtonText="Sign up"
         onSubmit={signup}
@@ -31,6 +31,7 @@ SignupScreen.navigationOptions = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: "center",
     justifyContent: "center",
     marginBottom: 100,
   },
