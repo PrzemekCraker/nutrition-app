@@ -38,6 +38,7 @@ export default class AddProduct extends React.Component {
         { id: 6, name: "broccoli" },
         { id: 7, name: "paper towels" },
         { id: 8, name: "blue cheese" },
+        { id: 9, name: "tortilla" },
       ],
       productsInList: [],
     };
@@ -107,7 +108,7 @@ export default class AddProduct extends React.Component {
   _handleAddProductPress = () => {
     Alert.alert(
       "Add a product",
-      "Name: Kawa",
+      "Name: ",
       [
         {
           text: "Cancel",
