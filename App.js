@@ -3,7 +3,8 @@ import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import { MaterialIcons } from "@expo/vector-icons";
-import { Entypo } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 import ShoppingList from "./src/screens/ShoppingList.js";
 import AddProduct from "./src/screens/AddProduct.js";
@@ -16,11 +17,6 @@ import ResultShowScreen from "./src/screens/ResultsShowScreen";
 import { Provider as AuthProvider } from "./src/context/AuthContext";
 import { setNavigator } from "./src/navigationRef";
 
-const ProductFlow = createStackNavigator({
-  Products: ShoppingList,
-  AddProduct: AddProduct,
-});
-
 const RestFlow = createStackNavigator({
   SearchRest: YelpScreen,
   ResultsShow: ResultShowScreen,
@@ -31,9 +27,14 @@ RestFlow.navigationOptions = {
   tabBarIcon: <MaterialIcons name="restaurant" size={20} color="black" />,
 };
 
-ProductFlow.navigationOptions = {
+AddProduct.navigationOptions = {
   title: "Products",
-  tabBarIcon: <Entypo name="shopping-cart" size={20} color="black" />,
+  tabBarIcon: <FontAwesome5 name="cart-plus" size={20} color="black" />,
+};
+
+ShoppingList.navigationOptions = {
+  title: "List",
+  tabBarIcon: <FontAwesome name="list-ul" size={20} color="black" />,
 };
 
 const switchNavigator = createSwitchNavigator({
@@ -43,7 +44,8 @@ const switchNavigator = createSwitchNavigator({
     Signin: SigninScreen,
   }),
   mainFlow: createBottomTabNavigator({
-    ProductFlow,
+    Products: ShoppingList,
+    AddProduct: AddProduct,
     RestFlow,
     Account: AccountScreen,
   }),
