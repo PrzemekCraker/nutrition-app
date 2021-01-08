@@ -12,7 +12,7 @@ import {
   Fab,
   Icon,
 } from "native-base";
-
+import { Header } from "react-native-elements";
 export default class ShoppingList extends React.Component {
   static navigationOptions = {
     title: "My Shopping List",
@@ -68,6 +68,12 @@ export default class ShoppingList extends React.Component {
     return (
       <Container>
         <Content style={{ backgroundColor: "white" }}>
+          <Header
+            centerComponent={{
+              text: "My Shopping List",
+              style: { color: "#fff" },
+            }}
+          />
           <List>
             {this.state.products.map((p) => {
               return (

@@ -1,5 +1,4 @@
 import React from "react";
-import prompt from "react-native-prompt-android";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
   Body,
@@ -12,14 +11,8 @@ import {
   Fab,
   Icon,
 } from "native-base";
-import {
-  View,
-  StyleSheet,
-  Button,
-  Alert,
-  TextInput,
-  NativeModules,
-} from "react-native";
+import { StyleSheet, Alert } from "react-native";
+import { Header } from "react-native-elements";
 
 export default class AddProduct extends React.Component {
   static navigationOptions = {
@@ -39,6 +32,7 @@ export default class AddProduct extends React.Component {
         { id: 7, name: "paper towels" },
         { id: 8, name: "blue cheese" },
         { id: 9, name: "tortilla" },
+        { id: 10, name: "coffee" },
       ],
       productsInList: [],
     };
@@ -135,6 +129,12 @@ export default class AddProduct extends React.Component {
     return (
       <Container>
         <Content>
+          <Header
+            centerComponent={{
+              text: "My Products Base",
+              style: { color: "#fff" },
+            }}
+          />
           <List>
             {this.state.allProducts.map((product) => {
               const productIsInList = this.state.productsInList.find(
@@ -157,6 +157,13 @@ export default class AddProduct extends React.Component {
                       <Text note>{"Already in shopping list"}</Text>
                     )}
                   </Body>
+                  <Right>
+                    <Icon
+                      ios="ios-add-circle"
+                      android="md-add-circle"
+                      style={{ color: "blue" }}
+                    />
+                  </Right>
                   <Right>
                     <Icon
                       ios="ios-remove-circle"
